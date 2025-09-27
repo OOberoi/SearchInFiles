@@ -29,5 +29,7 @@ foreach (string file in files)
             matchingLines.Add($"File: {file}, Line: {line}");
         }
     }
-    Console.WriteLine($"The files are: {file}");
+    string fullPath = Path.GetFullPath(file);
+    string fileName = Path.GetFileName(fullPath);
+    Console.WriteLine($"The files are: {fileName}");
 }
