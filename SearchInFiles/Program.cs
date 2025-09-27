@@ -1,4 +1,4 @@
-﻿Console.WriteLine("Enter a ClientId to search for!");
+﻿Console.WriteLine("Enter a ClientId to search for:");
 string? input = Console.ReadLine();
 if (string.IsNullOrWhiteSpace(input))
 {
@@ -8,7 +8,6 @@ if (string.IsNullOrWhiteSpace(input))
 string clientId = input;
 string[] files = Directory.GetFiles(Directory.GetCurrentDirectory(), "*.log", SearchOption.AllDirectories);
 
-// Simplified collection initialization (IDE0028) and 'new' expression (IDE0090)
 var matchingLines = new List<string>();
 
 foreach (string file in files)
@@ -21,4 +20,6 @@ foreach (string file in files)
             matchingLines.Add($"File: {file}, Line: {line}");
         }
     }
+    Console.WriteLine($"The files are: {file}");
 }
+
