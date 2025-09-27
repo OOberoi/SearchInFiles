@@ -1,4 +1,6 @@
-﻿Console.WriteLine("Enter a ClientId to search for:");
+﻿using System.Configuration;
+
+Console.WriteLine("Enter a ClientId to search for:");
 string? input = Console.ReadLine();
 if (string.IsNullOrWhiteSpace(input))
 {
@@ -6,7 +8,14 @@ if (string.IsNullOrWhiteSpace(input))
     return;
 }
 string clientId = input;
-string[] files = Directory.GetFiles(Directory.GetCurrentDirectory(), "*.log", SearchOption.AllDirectories);
+
+string? dataFolder = ConfigurationManager.AppSettings["DataFolder"];
+if (string.IsNullOrWhiteSpace(dataFolder))
+{
+    Console.WriteLine("DataFolder configuration is missing or empty.");
+    return;
+}
+string[] files = Directory.GetFiles(dataFolder, "*.log", SearchOption.AllDirectories);
 
 var matchingLines = new List<string>();
 
@@ -22,4 +31,3 @@ foreach (string file in files)
     }
     Console.WriteLine($"The files are: {file}");
 }
-
