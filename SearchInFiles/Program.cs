@@ -6,8 +6,11 @@ if (string.IsNullOrWhiteSpace(input))
     return;
 }
 string clientId = input;
-string[] files = Directory.GetFiles(Directory.GetCurrentDirectory(), "*.txt", SearchOption.AllDirectories);
-List<string> matchingLines = new List<string>();
+string[] files = Directory.GetFiles(Directory.GetCurrentDirectory(), "*.log", SearchOption.AllDirectories);
+
+// Simplified collection initialization (IDE0028) and 'new' expression (IDE0090)
+var matchingLines = new List<string>();
+
 foreach (string file in files)
 {
     string[] lines = File.ReadAllLines(file);
