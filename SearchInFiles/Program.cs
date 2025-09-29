@@ -27,9 +27,11 @@ foreach (string file in files)
         if (line.Contains(clientId))
         {
             matchingLines.Add($"File: {file}, Line: {line}");
+            string fullPath = Path.GetFullPath(file);
+            string fileName = Path.GetFileName(fullPath);
+            Console.WriteLine($"The files are: {fileName}");
         }
-    }
-    string fullPath = Path.GetFullPath(file);
-    string fileName = Path.GetFileName(fullPath);
-    Console.WriteLine($"The files are: {fileName}");
+   }
+     
 }
+Console.WriteLine("File not found!");
