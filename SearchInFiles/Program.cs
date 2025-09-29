@@ -31,7 +31,7 @@ foreach (string file in files)
             string fileName = Path.GetFileName(fullPath);
             Console.WriteLine($"The files are: {fileName}");
         }
-   }
-     
+   }     
 }
 Console.WriteLine("File not found!");
+return;
