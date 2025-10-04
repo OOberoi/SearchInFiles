@@ -12,7 +12,7 @@ string clientId = input;
 string? dataFolder = ConfigurationManager.AppSettings["DataFolder"];
 if (string.IsNullOrWhiteSpace(dataFolder))
 {
-    Console.WriteLine("DataFolder configuration is missing or empty.");
+    Console.WriteLine($"ERROR: file {dataFolder} does not exist.");
     return;
 }
 string[] files = Directory.GetFiles(dataFolder, "*.log", SearchOption.AllDirectories);
