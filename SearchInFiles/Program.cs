@@ -4,7 +4,7 @@ Console.WriteLine("Enter a ClientId to search for:");
 string? input = Console.ReadLine();
 if (string.IsNullOrWhiteSpace(input))
 {
-    Console.WriteLine("ClientId cannot be null or empty.");
+    Console.WriteLine("Client Id cannot be null or empty.");
     return;
 }
 string clientId = input;
@@ -29,7 +29,7 @@ foreach (string file in files)
             matchingLines.Add($"File: {file}, Line: {line}");
             string fullPath = Path.GetFullPath(file);
             string fileName = Path.GetFileName(fullPath);
-            Console.WriteLine($"The files are: {fileName}");
+            Console.WriteLine($"The file(s) are: {fileName}");
         }
    }     
 }
